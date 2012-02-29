@@ -2,25 +2,36 @@
 body
 {
     font-family: Arial, Sans-Serif;
-    font-size: 13px;
+    font-size: 18px;
+    width:800px;
+    margin: 0 auto;
 }
 #inputArea
 {
-        font-family: Arial, Sans-Serif;
-        font-size: 13px;
-        background-color: #d6e5f4;
-        padding: 10px;
-        width:310px;
+    background-color: #d6e5f4;
+    padding: 10px;
 }
-#inputArea input, #inputArea textarea
+#inputArea input[type="text"], #inputArea textarea
 {
-    font-family: Arial, Sans-Serif;
-    font-size: 13px;
     margin-bottom: 5px;
     display: block;
     padding: 4px;
-    width: 300px;
+    width: 90%;
     border: solid 1px #85b1de;
+    font-size:16px;
+    margin:10px auto;
+}
+.btn
+{
+    padding: 4px;
+    width: 20%;
+    font-size:16px;
+    margin:10px auto;
+    /*
+    margin-bottom: 5px;
+    border: solid 1px #85b1de;
+    */
+    display: block;
 }
 
 .activeField
@@ -31,10 +42,38 @@ body
 }
 .idle
 {
-    border: solid 1px #85b1de;
+    /*border: solid 1px #85b1de;*/
 }
 #div_msg{
     display:none;
     color:green;
     font-size:32px;
+    margin:10px auto;
+}
+table{
+	border-collapse: collapse;
+}
+th {
+    /*
+	font-weight:normal;
+	background:#cccccc;
+    */
+}
+td,th {
+    padding:10px;
+	text-align:center;
+	border:1px #c2d2ef solid;
+}
+#inputArea a {
+    color: #336699;
+    text-decoration:none;
+}
+
+#inputArea a:hover {
+    background: none repeat scroll 0 0 #003399;
+    color: #FFFFFF;
+    text-decoration:none;
+}
+li img {
+    vertical-align:text-bottom;
 }
