@@ -1,0 +1,40 @@
+
+body
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+}
+#inputArea
+{
+        font-family: Arial, Sans-Serif;
+        font-size: 13px;
+        background-color: #d6e5f4;
+        padding: 10px;
+        width:310px;
+}
+#inputArea input, #inputArea textarea
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+    padding: 4px;
+    width: 300px;
+    border: solid 1px #85b1de;
+}
+
+.activeField
+{
+    background-image: none;
+    background-color: #ffffff;
+    border: solid 1px #33677F;
+}
+.idle
+{
+    border: solid 1px #85b1de;
+}
+#div_msg{
+    display:none;
+    color:green;
+    font-size:32px;
+}
