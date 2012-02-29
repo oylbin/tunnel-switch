@@ -2,9 +2,7 @@
   "name": "tunnel switch"
   ,"version": "1.0"
   ,"description": "cycle your proxy setting in : direct mode, pac file mode, ssh tunnel mode. "
-  ,"icons": { "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png" }
+  ,"icons": { "128": "tunnel_switch.png" }
   ,"background_page": "background.html"
   ,"permissions": [
     "tabs", "http://*/*", "proxy"
