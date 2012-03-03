@@ -6,12 +6,14 @@ body
     width:800px;
     margin: 0 auto;
 }
-#inputArea
+.main_content
 {
     background-color: #d6e5f4;
-    padding: 10px;
+    padding: 20px;
+    border: solid #d6e5f4 1px;
+    border-radius: 0 0 10px 10px;
 }
-#inputArea input[type="text"], #inputArea textarea
+.main_content input[type="text"], #inputArea textarea
 {
     margin-bottom: 5px;
     display: block;
@@ -44,13 +46,11 @@ body
 {
     /*border: solid 1px #85b1de;*/
 }
-#div_msg{
-    display:none;
-    color:green;
-    font-size:32px;
-    margin:10px auto;
+.div_msg{
+border: solid #eeeedd 1px; border-radius: 6px; color: black; background: #ffefa8; margin: 0px; padding: 6px 12px; font-weight: bold; font-size: 14pt; 
 }
 table{
+    width:100%;
 	border-collapse: collapse;
 }
 th {
@@ -60,7 +60,7 @@ th {
     */
 }
 td,th {
-    padding:10px;
+    padding:5px;
 	text-align:center;
 	border:1px #c2d2ef solid;
 }
@@ -76,4 +76,11 @@ td,th {
 }
 li img {
     vertical-align:text-bottom;
+}
+
+.red {
+    color:red;
+}
+.hidden {
+    display:none;
 }

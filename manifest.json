@@ -10,6 +10,7 @@
   ]
   ,"browser_action": {
       "name": "Click to change the proxy"
+      ,"default_icon":"asset/image/pac.png"
   }
   ,"content_security_policy": "default-src 'self'"
   ,"homepage_url":"https://github.com/oylbin/tunnel-switch"

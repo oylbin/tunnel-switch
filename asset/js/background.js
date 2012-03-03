@@ -1,2 +1,3 @@
 chrome.browserAction.onClicked.addListener(TS.cycle_proxy);
-TS.change_proxy(TS.config.proxy_mode)
+TS.load_config();
+TS.change_proxy(TS.config.current_proxy_index);

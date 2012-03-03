@@ -4,41 +4,103 @@
     <title>tunnel switch options</title>
     <link type="text/css" rel="stylesheet" href="../css/style.css" />
     <script src="../js/jquery-1.2.6.min.js"></script>
+    <script src="../js/jscolor/jscolor.js"></script>
     <script src="../js/ts.js"></script>
     <script src="../js/options.js"></script>
 </head>
 <body>
-    <div id="inputArea">
-        <p>When you click on the extension icon, proxy mode will cycle in the following modes:</p>
-        <ul>
-            <li><img src="../image/direct.png"/> <strong>DIRECT</strong> - no proxy
-            </li>
-            <li><img src="../image/pac.png"/> <strong>PAC</strong> - use PAC file
-            </li>
-            <li><img src="../image/tunnel.png"/> <strong>TUNNEL</strong> - all traffic are go through ssh tunnel
-            </li>
-        </ul>
+    <div class="main_content">
+        <div class='hidden'>
+            <p>
+            When you click the extension icon:<br>
+            <label><input type="radio" name="click_action" value="cycle" />Cycles through proxies</label><br>
+            <label><input disabled type="radio" name="click_action" value="list" /><strike>Show proxy list </strike><em class='red'>(not implemented yet)</em></label><br>
+            </p>
+            <p>
+            When Chrome starts, the extension should use :<br>
+            <label><input type="radio" name="use_default_proxy" value="no" />the proxy that was being used when Chrome last quit</label><br>
+            <label><input disabled type="radio" name="use_default_proxy" value="yes" /><strike>default proxy that set in the list</strike> <em class='red'>(not implemented yet)</em></label><br>
+            </p>
+        </div>
+        <h3>Proxy List</h3>
+            <p>When you click on the extension icon, proxy mode will cycle in the following modes:</p>
+        <table id="table_proxy_list">
+            <tr>
+                <th class='hidden'>Default</th>
+                <th>Color</th>
+                <th>Mode</th>
+                <th>Detail</th>
+                <th>Action</th>
+            </tr>
+        </table>
 
-        <p>
-        if <strong>PAC file url</strong> is not set, then <strong>pac</strong> mode is skipped automatically.<br>
-        if <strong>ssh tunnel host and port</strong> is not set, then <strong>tunnel</strong> mode is skipped automatically.<br>
-        </p>
+        <br>
+        <br>
 
-        <label>PAC file url</label>
-        for example:
-        <ul>
-            <li>file:///Users/oylbin/proxy.pac</li>
-            <li><a href='http://ouyang.me/proxy.pac'>http://ouyang.me/proxy.pac</a></li>
-        </ul>
-        <input id="pac_file_url" type="text" />
-        <br>
-        <label>SSH Tunnel Host</label>, for example: 127.0.0.1
-        <input id="ssh_tunnel_ip" type="text" />
-        <br>
-        <label>SSH Tunnel Port</label>, for example: 8527
-        <input id="ssh_tunnel_port" type="text" />
-        <input type='button' class='btn' id="btn_save" value="SAVE" /><br>
+        <div id="proxy_setting">
+            Mode:
+            <select id="select_mode">
+                <option value='direct'>DIRECT</option>
+                <option value='pac_script'>PAC FILE</option>
+                <option value='fixed_servers'>FIXED SERVER</option>
+            </select>
+            <br>
+            Color:<input type="text" id="color" value="" class="color"/><br>
+            <div id='pac_script_setting' class='hidden'>
+                PAC file url:<input id="pac_script_url" type="text" />
+            </div>
+            <div id='fixed_servers_setting' class='hidden'>
+                <label><input type="radio" name="fixed_servers_schema" value="http" />HTTP</label>
+                <label><input type="radio" name="fixed_servers_schema" value="https" />HTTPS</label>
+                <label><input type="radio" name="fixed_servers_schema" value="socks4" />SOCKS4</label>
+                <label><input type="radio" name="fixed_servers_schema" value="socks5" checked />SOCKS5</label>
+                <br>
+                Host or IP Address 
+                <input id="fixed_servers_name" type="text" />&nbsp;&nbsp;&nbsp;&nbsp;
+                Port
+                <input id="fixed_servers_port" type="text" />
+            </div>
+            <input type="button" class='btn' id="btn_add_proxy" value="Add Proxy"/>
+        </div>
+
+        
+            <!--
+            <input type='button' class='btn' id="btn_clear" value="clear" /><br>
+            <input type='button' class='btn' id="btn_cycle" value="cycle" /><br>
+
+        <div id="inputArea">
+            <p>When you click on the extension icon, proxy mode will cycle in the following modes:</p>
+            <ul>
+                <li><img src="../image/direct.png"/> <strong>DIRECT</strong> - no proxy
+                </li>
+                <li><img src="../image/pac.png"/> <strong>PAC</strong> - use PAC file
+                </li>
+                <li><img src="../image/tunnel.png"/> <strong>TUNNEL</strong> - all traffic are go through ssh tunnel
+                </li>
+            </ul>
+
+            <p>
+            if <strong>PAC file url</strong> is not set, then <strong>PAC</strong> mode is skipped automatically.<br>
+            if <strong>ssh tunnel host and port</strong> is not set, then <strong>TUNNEL</strong> mode is skipped automatically.<br>
+            </p>
+
+            <label>PAC file url</label>
+            for example:
+            <ul>
+                <li>file:///Users/oylbin/proxy.pac</li>
+                <li><a href='http://ouyang.me/proxy.pac'>http://ouyang.me/proxy.pac</a></li>
+            </ul>
+            <input id="pac_script_url" type="text" />
+            <br>
+            <label>SSH Tunnel Host</label>, for example: 127.0.0.1
+            <input id="ssh_tunnel_ip" type="text" />
+            <br>
+            <label>SSH Tunnel Port</label>, for example: 8527
+            <input id="ssh_tunnel_port" type="text" />
+            <input type='button' class='btn' id="btn_save" value="SAVE" /><br>
+        </div>
+        <div class="div_msg"> Your changes have been saved.  </div>
+        -->
     </div>
-    <div id="div_msg"></div>
 </body>
 </html>
