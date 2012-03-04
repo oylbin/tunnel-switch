@@ -1,106 +1,157 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>tunnel switch options</title>
-    <link type="text/css" rel="stylesheet" href="../css/style.css" />
-    <script src="../js/jquery-1.2.6.min.js"></script>
-    <script src="../js/jscolor/jscolor.js"></script>
-    <script src="../js/ts.js"></script>
-    <script src="../js/options.js"></script>
-</head>
-<body>
-    <div class="main_content">
-        <div class='hidden'>
-            <p>
-            When you click the extension icon:<br>
-            <label><input type="radio" name="click_action" value="cycle" />Cycles through proxies</label><br>
-            <label><input disabled type="radio" name="click_action" value="list" /><strike>Show proxy list </strike><em class='red'>(not implemented yet)</em></label><br>
-            </p>
-            <p>
-            When Chrome starts, the extension should use :<br>
-            <label><input type="radio" name="use_default_proxy" value="no" />the proxy that was being used when Chrome last quit</label><br>
-            <label><input disabled type="radio" name="use_default_proxy" value="yes" /><strike>default proxy that set in the list</strike> <em class='red'>(not implemented yet)</em></label><br>
-            </p>
-        </div>
-        <h3>Proxy List</h3>
-            <p>When you click on the extension icon, proxy mode will cycle in the following modes:</p>
-        <table id="table_proxy_list">
-            <tr>
-                <th class='hidden'>Default</th>
-                <th>Color</th>
-                <th>Mode</th>
-                <th>Detail</th>
-                <th>Action</th>
-            </tr>
-        </table>
+    <head>
+        <title>TunnelSwitch Settings</title>
+        <link rel="stylesheet" href="../fancy-settings/source/lib/default.css" media="screen">
+        <link type="text/css" rel="stylesheet" href="../css/chrome_shared.css" />
+        <link type="text/css" rel="stylesheet" href="../css/checkbox.css" />
+        <link type="text/css" rel="stylesheet" href="../css/button.css" />
+        <link type="text/css" rel="stylesheet" href="../css/select.css" />
 
-        <br>
-        <br>
+		<link type="text/css" href="../css/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
 
-        <div id="proxy_setting">
-            Mode:
-            <select id="select_mode">
-                <option value='direct'>DIRECT</option>
-                <option value='pac_script'>PAC FILE</option>
-                <option value='fixed_servers'>FIXED SERVER</option>
-            </select>
-            <br>
-            Color:<input type="text" id="color" value="" class="color"/><br>
-            <div id='pac_script_setting' class='hidden'>
-                PAC file url:<input id="pac_script_url" type="text" />
-            </div>
-            <div id='fixed_servers_setting' class='hidden'>
-                <label><input type="radio" name="fixed_servers_schema" value="http" />HTTP</label>
-                <label><input type="radio" name="fixed_servers_schema" value="https" />HTTPS</label>
-                <label><input type="radio" name="fixed_servers_schema" value="socks4" />SOCKS4</label>
-                <label><input type="radio" name="fixed_servers_schema" value="socks5" checked />SOCKS5</label>
-                <br>
-                Host or IP Address 
-                <input id="fixed_servers_name" type="text" />&nbsp;&nbsp;&nbsp;&nbsp;
-                Port
-                <input id="fixed_servers_port" type="text" />
-            </div>
-            <input type="button" class='btn' id="btn_add_proxy" value="Add Proxy"/>
-        </div>
+        <link type="text/css" rel="stylesheet" href="../css/style.css" />
 
-        
-            <!--
-            <input type='button' class='btn' id="btn_clear" value="clear" /><br>
-            <input type='button' class='btn' id="btn_cycle" value="cycle" /><br>
-
-        <div id="inputArea">
-            <p>When you click on the extension icon, proxy mode will cycle in the following modes:</p>
-            <ul>
-                <li><img src="../image/direct.png"/> <strong>DIRECT</strong> - no proxy
-                </li>
-                <li><img src="../image/pac.png"/> <strong>PAC</strong> - use PAC file
-                </li>
-                <li><img src="../image/tunnel.png"/> <strong>TUNNEL</strong> - all traffic are go through ssh tunnel
-                </li>
-            </ul>
-
-            <p>
-            if <strong>PAC file url</strong> is not set, then <strong>PAC</strong> mode is skipped automatically.<br>
-            if <strong>ssh tunnel host and port</strong> is not set, then <strong>TUNNEL</strong> mode is skipped automatically.<br>
-            </p>
-
-            <label>PAC file url</label>
-            for example:
-            <ul>
-                <li>file:///Users/oylbin/proxy.pac</li>
-                <li><a href='http://ouyang.me/proxy.pac'>http://ouyang.me/proxy.pac</a></li>
-            </ul>
-            <input id="pac_script_url" type="text" />
-            <br>
-            <label>SSH Tunnel Host</label>, for example: 127.0.0.1
-            <input id="ssh_tunnel_ip" type="text" />
-            <br>
-            <label>SSH Tunnel Port</label>, for example: 8527
-            <input id="ssh_tunnel_port" type="text" />
-            <input type='button' class='btn' id="btn_save" value="SAVE" /><br>
-        </div>
-        <div class="div_msg"> Your changes have been saved.  </div>
+        <!--
+        <script src="../js/jquery-1.2.6.min.js"></script>
         -->
-    </div>
-</body>
+        <script src="../js/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-ui-1.8.18.custom.min.js"></script>
+        <script src="../js/jscolor/jscolor.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/ts.js"></script>
+        <script src="../js/options.js"></script>
+    </head>
+    <body class="no-select">
+        <div id="sidebar" class="fancy">
+            <img id="icon" src="../image/icon128.png" alt=""><h1 id="settings-label">TunnelSwitch</h1>
+            <div id="tab-container">
+                <div class="tab"><a target='_blank' href="https://github.com/oylbin/tunnel-switch">homepage</a></div>
+                <div class="tab"><a target='_blank' href='mailto:oylbin@gmail.com'>oylbin@gmail.com</a></div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="tab-content show">
+                <h2>Settings</h2>
+                <table class="setting group">
+                    <tr>
+                        <td class="setting group-name">Proxy List</td>
+                        <td class="setting group-content">
+                            <div class="setting bundle description">
+                                <div class="setting container description">
+                                    <p class="setting element description">
+                                    When you click on the extension icon, proxy mode will cycle in the following modes.<br>
+                                    <span id='warning_msg'>You need enable at least 2 proxies here, or you will be redirected to this page when you click the extension icon.
+                                    </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <table id="table_proxy_list">
+                                <tr>
+                                    <th class='hidden'>Default</th>
+                                    <th>Enabled</th>
+                                    <th>Color</th>
+                                    <th>Mode</th>
+                                    <th>Detail</th>
+                                    <th>Action</th>
+                                </tr>
+                            </table>
+                            <input type="button" class='btn' id="btn_add_proxy" value="Add Proxy"/>
+                        </td>
+                    </tr>
+                </table>
+                <table class="setting group">
+                    <tr>
+                        <td class="setting group-name"></td>
+                        <td class="setting group-content">
+                            <input type='button' class='btn' id="btn_clear" value="Reset Settings" /><br>
+
+                            <!--
+                            <input type='button' class='btn' id="btn_cycle" value="Cycle Proxy" /><br>
+                            -->
+
+
+
+
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-content">
+                b
+            </div>
+        </div>
+
+                            <div id="proxy_setting" class='hidden'>
+                                <div>
+                                    <div>
+                                        <input type="radio" name="proxy_mode" id="proxy_mode_direct" value="direct" />
+                                        <label for="proxy_mode_direct">DIRECT</label><br>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <input type="radio" name="proxy_mode" id="proxy_mode_pac_script" value="pac_script" />
+                                        <label for="proxy_mode_pac_script">PAC SCRIPT</label><br>
+                                    </div>
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <td class='tright'>
+                                                    URL
+                                                </td>
+                                                <td>
+                                                    <input id="pac_script_url" type="text" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <input type="radio" name="proxy_mode" id="proxy_mode_fixed_server" value="fixed_servers" />
+                                        <label for="proxy_mode_fixed_server">FIXED SERVER</label><br>
+                                    </div>
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <td class='tright'>
+                                                    Type
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="fixed_servers_schema" id="fixed_servers_schema_http" value="http" />
+                                                    <label for="fixed_servers_schema_http">HTTP</label>
+                                                    <label><input type="radio" name="fixed_servers_schema" value="https" />HTTPS</label>
+                                                    <label><input type="radio" name="fixed_servers_schema" value="socks4" />SOCKS4</label>
+                                                    <label><input type="radio" name="fixed_servers_schema" value="socks5" checked />SOCKS5</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class='tright'>
+                                                    Host 
+                                                </td>
+                                                <td>
+                                                    <input id="fixed_servers_name" type="text" /><br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class='tright'>
+                                                    Port
+                                                </td>
+                                                <td>
+                                                    <input id="fixed_servers_port" type="text" /><br>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                Color&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="color" value="" class="color"/><br>
+                            </div>
+
+    </body>
 </html>

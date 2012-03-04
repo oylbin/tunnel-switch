@@ -1,7 +1,7 @@
 {
-  "name": "tunnel switch"
+  "name": "TunnelSwitch"
   ,"version": "1.0.1"
-  ,"description": "cycle your proxy setting in : direct mode, pac file mode, ssh tunnel mode. "
+  ,"description": "cycle through your proxy settings"
   ,"icons": { "128": "asset/image/tunnel_switch.png" }
   ,"background_page": "asset/html/background.html"
   ,"options_page": "asset/html/options.html"
@@ -10,8 +10,8 @@
   ]
   ,"browser_action": {
       "name": "Click to change the proxy"
-      ,"default_icon":"asset/image/pac.png"
+      ,"default_icon":"asset/image/direct.png"
   }
-  ,"content_security_policy": "default-src 'self'"
+  ,"content_security_policy": "default-src 'self'; style-src 'self'; script-src 'self'; object-src 'self'"
   ,"homepage_url":"https://github.com/oylbin/tunnel-switch"
 }
