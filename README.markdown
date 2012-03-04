@@ -1,5 +1,7 @@
 ### TunnelSwitch is chrome extension.
 
+[Latest Version: 1.0.1](http://ouyang.me/projects/tunnel-switch/tunnel-switch-1.0.1.crx)
+
 You can use it to cycle your proxy setting in following modes:
 
 * no proxy
