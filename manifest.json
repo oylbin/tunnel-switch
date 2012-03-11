@@ -1,6 +1,6 @@
 {
   "name": "TunnelSwitch"
-  ,"version": "1.0.2"
+  ,"version": "1.0.4"
   ,"description": "cycle through your proxy settings"
   ,"icons": { "128": "asset/image/tunnel_switch.png" }
   ,"background_page": "asset/html/background.html"
@@ -14,4 +14,5 @@
   }
   ,"content_security_policy": "default-src 'self'; style-src 'self'; script-src 'self'; object-src 'self'"
   ,"homepage_url":"https://github.com/oylbin/tunnel-switch"
+  ,"update_url": "http://ouyang.me/projects/tunnel-switch/updates.xml"
 }

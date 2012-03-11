@@ -174,6 +174,9 @@ $(document).ready(function(){
     var config = TS.load_config();
     $.each(config.proxy_list,add_proxy_row);
 
+    var details = chrome.app.getDetails();
+    $('#version').html('Version: '+ details.version);
+
     //console.log($(location).attr('search'));
     if(getParameter('first')){
         $('#warning_msg').addClass('red');

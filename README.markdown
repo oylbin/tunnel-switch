@@ -1,6 +1,6 @@
 ### TunnelSwitch is chrome extension allows you manage and switch between multiple proxies quickly and easily
 
-[Latest Version: 1.0.2](http://ouyang.me/projects/tunnel-switch/tunnel-switch-1.0.2.crx)
+[Latest Version](http://ouyang.me/projects/tunnel-switch/latest.crx)
 
 [Switchy](https://chrome.google.com/webstore/detail/caehdcpeofiiigpdhbabniblemipncjj) is pretty good, but the auto switch mode seems not work for me, so I made this [TunnelSwitch](https://github.com/oylbin/tunnel-switch).
 
