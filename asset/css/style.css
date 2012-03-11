@@ -3,6 +3,7 @@ body
 {
     width:800px;
     margin: 0 auto;
+    font-size:14px;
 }
 .red {color:red;}
 .hidden {display:none;}
@@ -45,8 +46,8 @@ body
 #sidebar h1 {
     position: absolute;
     top: 13px;
-    right: 15px;
-    font-size: 26px;
+    right: 5px;
+    font-size: 1.8em;
     color: #707070;
 }
 
@@ -66,7 +67,7 @@ body
     padding-right: 25px;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    font-size: 12px;
+    font-size: 1em;
     line-height: 28px;
     color: #808080;
 }
@@ -100,7 +101,7 @@ body
 .tab-content {
     display: none;
     position: absolute;
-    width: 840px;
+    width: 900px;
     top: 0;
     left: 0;
     bottom: 0;
@@ -110,7 +111,7 @@ body
 .tab-content h2 {
     margin: 0;
     padding-bottom: 5px;
-    font-size: 26px;
+    font-size: 1.5em;
     color: #707070;
     line-height: 1;
 }
@@ -125,8 +126,17 @@ body
 .setting.group-name {
     width: 140px;
     padding: 0;
-    font-size: 14px;
+    font-size: 1.2em;
     font-weight: bold;
     vertical-align: top;
+}
+#table_proxy_list {
+    font-size:0.9em;
+}
+#proxy_setting table {
+    margin-bottom:0.5em;
+}
+#proxy_setting ul {
+    margin-bottom:0.5em;
 }
 

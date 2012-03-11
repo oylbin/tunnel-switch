@@ -6,7 +6,7 @@ TS = {
         ,'current_proxy_index':0
         ,'proxy_list':[
             { mode:'direct', enable:1 }
-            ,{ mode:'pac_script',enable:0, color:"009933", pac_script_url:'file:///Users/oylbin/oylbin/proxy.pac' }
+            ,{ mode:'pac_script',enable:0, color:"009933", pac_script_url:'https://raw.github.com/oylbin/tunnel-switch/master/asset/example.pac'}
             ,{ mode:'fixed_servers',enable:0, color:"CC0000", fixed_servers_schema:'socks5', fixed_servers_name:'127.0.0.1', fixed_servers_port:'8527' }
         ]
     }

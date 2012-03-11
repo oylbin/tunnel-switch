@@ -1,6 +1,6 @@
 {
   "name": "TunnelSwitch"
-  ,"version": "1.0.1"
+  ,"version": "1.0.2"
   ,"description": "cycle through your proxy settings"
   ,"icons": { "128": "asset/image/tunnel_switch.png" }
   ,"background_page": "asset/html/background.html"

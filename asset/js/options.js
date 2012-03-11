@@ -5,7 +5,7 @@ function add_proxy_row(index,proxy){
         detail = "no proxy";
     }else if(proxy.mode=='pac_script'){
         mode="PAC FILE";
-        detail = "<a href='{url}'>{url}</a>".format({url:proxy.pac_script_url});
+        detail = "<a target='_blank' href='{url}'>{url}</a>".format({url:proxy.pac_script_url});
     }else if(proxy.mode=='fixed_servers'){
         mode="FIXED SERVER";
         detail = proxy.fixed_servers_schema +', '+proxy.fixed_servers_name+', '+proxy.fixed_servers_port;
@@ -102,13 +102,27 @@ function open_proxy_setting(proxy,index){
         if(newproxy['mode']=='direct'){
         }else if(newproxy['mode']=='pac_script'){
             newproxy['pac_script_url'] = $("#proxy_setting #pac_script_url").val();
+            if(newproxy['pac_script_url'].length==0 || newproxy['pac_script_url'].search(/[<>]/)!=-1){
+                alert('invalid PAC SCRIPT url');
+                return;
+            }
             newproxy['color'] = $("#proxy_setting #color").val();
         }else if(newproxy['mode']=='fixed_servers'){
             newproxy['fixed_servers_schema'] = $("#proxy_setting input[name=fixed_servers_schema]:checked ").val();
             newproxy['fixed_servers_name'] = $("#proxy_setting #fixed_servers_name").val();
             newproxy['fixed_servers_port'] = $("#proxy_setting #fixed_servers_port").val();
+
+            if(newproxy['fixed_servers_name'].length==0 || newproxy['fixed_servers_name'].search(/[<>]/)!=-1){
+                alert('invalid proxy server');
+                return;
+            }
+            if(newproxy['fixed_servers_port'].search(/^\d+$/) == -1){
+                alert("port number[{port}] should be an integer".format({port:newproxy['fixed_servers_port']}));
+                return;
+            }
             newproxy['color'] = $("#proxy_setting #color").val();
         }
+
         if(index==-1){
             TS.config.proxy_list.push(newproxy);
             TS.save_config();

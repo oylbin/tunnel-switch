@@ -58,18 +58,36 @@
                 </table>
                 <table class="setting group">
                     <tr>
+                        <td class="setting group-name">Notes</td>
+                        <td class="setting group-content">
+                            <div class="setting bundle description">
+                                <div class="setting container description">
+                                    <p class="setting element description">
+                                    <a target='_blank' href='https://chrome.google.com/webstore/detail/caehdcpeofiiigpdhbabniblemipncjj'>Switchy</a> is pretty good, but the auto switch mode seems not work for me, so I made this <a target='_blank' href="https://github.com/oylbin/tunnel-switch">TunnelSwitch</a>. 
+                                    </p>
+                                    <p class="setting element description">
+                                    The default setting shows that how I use TunnelSwitch with a ssh tunnel proxy listened on port 8527 at localhost.<br>
+                                    I have 3 modes in the default setting.
+                                    <ul>
+                                        <li>DIRECT, all traffic goes directly without proxy</li>
+                                        <li>PAC FILE, I use pac file to define the URL patterns those should be proxied with ssh tunnel, GFWed sites typically (facebook, twitter, youtube... ) . I provide a <a target='_blank' href='https://raw.github.com/oylbin/tunnel-switch/master/asset/example.pac'>example pac file</a> in default settings, you can download it and change it for your own sake. I usually stay in this mode. When I visit the GFWed sites, the traffic goes through ssh tunnel automatically.</li>
+                                        <li>FIXED SERVER, socks5,127.0.0.1,8527, all traffic goes through the ssh tunnel </li>
+                                    </ul>
+                                    Though I mainly use this extension with socks5 proxy, Other proxy schemas http/https/socks4 are also supported.
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table class="setting group">
+                    <tr>
                         <td class="setting group-name"></td>
                         <td class="setting group-content">
                             <input type='button' class='btn' id="btn_clear" value="Reset Settings" /><br>
-
                             <!--
                             <input type='button' class='btn' id="btn_cycle" value="Cycle Proxy" /><br>
                             -->
-
-
-
-
-
                         </td>
                     </tr>
                 </table>
@@ -79,74 +97,81 @@
             </div>
         </div>
 
-                            <div id="proxy_setting" class='hidden'>
-                                <div>
-                                    <div>
-                                        <input type="radio" name="proxy_mode" id="proxy_mode_direct" value="direct" />
-                                        <label for="proxy_mode_direct">DIRECT</label><br>
-                                    </div>
-                                    <div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <input type="radio" name="proxy_mode" id="proxy_mode_pac_script" value="pac_script" />
-                                        <label for="proxy_mode_pac_script">PAC SCRIPT</label><br>
-                                    </div>
-                                    <div>
-                                        <table>
-                                            <tr>
-                                                <td class='tright'>
-                                                    URL
-                                                </td>
-                                                <td>
-                                                    <input id="pac_script_url" type="text" />
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <input type="radio" name="proxy_mode" id="proxy_mode_fixed_server" value="fixed_servers" />
-                                        <label for="proxy_mode_fixed_server">FIXED SERVER</label><br>
-                                    </div>
-                                    <div>
-                                        <table>
-                                            <tr>
-                                                <td class='tright'>
-                                                    Type
-                                                </td>
-                                                <td>
-                                                    <input type="radio" name="fixed_servers_schema" id="fixed_servers_schema_http" value="http" />
-                                                    <label for="fixed_servers_schema_http">HTTP</label>
-                                                    <label><input type="radio" name="fixed_servers_schema" value="https" />HTTPS</label>
-                                                    <label><input type="radio" name="fixed_servers_schema" value="socks4" />SOCKS4</label>
-                                                    <label><input type="radio" name="fixed_servers_schema" value="socks5" checked />SOCKS5</label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class='tright'>
-                                                    Host 
-                                                </td>
-                                                <td>
-                                                    <input id="fixed_servers_name" type="text" /><br>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class='tright'>
-                                                    Port
-                                                </td>
-                                                <td>
-                                                    <input id="fixed_servers_port" type="text" /><br>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
+            <div id="proxy_setting" class='hidden'>
+                <div>
+                    <div>
+                        <input type="radio" name="proxy_mode" id="proxy_mode_direct" value="direct" />
+                        <label for="proxy_mode_direct">DIRECT</label><br>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <input type="radio" name="proxy_mode" id="proxy_mode_pac_script" value="pac_script" />
+                        <label for="proxy_mode_pac_script">PAC SCRIPT</label><br>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class='tright'>
+                                    URL
+                                </td>
+                                <td>
+                                    <input id="pac_script_url" type="text" />
+                                </td>
+                            </tr>
+                        </table>
+                <table><tr><td>
+                            The PAC script could be a local file such as:
+                            <ul>
+                                <li>file:///home/oylbin/proxy.pac on Linux</li>
+                                <li>file:///d:/documents/proxy.pac on Windows</li>
+                            </ul>
+                </td></tr></table>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <input type="radio" name="proxy_mode" id="proxy_mode_fixed_server" value="fixed_servers" />
+                        <label for="proxy_mode_fixed_server">FIXED SERVER</label><br>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class='tright'>
+                                    Type
+                                </td>
+                                <td>
+                                    <input type="radio" name="fixed_servers_schema" id="fixed_servers_schema_http" value="http" />
+                                    <label for="fixed_servers_schema_http">HTTP</label>
+                                    <label><input type="radio" name="fixed_servers_schema" value="https" />HTTPS</label>
+                                    <label><input type="radio" name="fixed_servers_schema" value="socks4" />SOCKS4</label>
+                                    <label><input type="radio" name="fixed_servers_schema" value="socks5" checked />SOCKS5</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='tright'>
+                                    Host 
+                                </td>
+                                <td>
+                                    <input id="fixed_servers_name" type="text" /><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='tright'>
+                                    Port
+                                </td>
+                                <td>
+                                    <input id="fixed_servers_port" type="text" /><br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
 
-                                Color&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="color" value="" class="color"/><br>
-                            </div>
+                Color&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="color" value="" class="color"/><br>
+            </div>
 
     </body>
 </html>
