@@ -1,18 +1,20 @@
 {
   "name": "TunnelSwitch"
   ,"version": "1.0.4"
+  ,"manifest_version": 2
   ,"description": "cycle through your proxy settings"
   ,"icons": { "128": "asset/image/tunnel_switch.png" }
-  ,"background_page": "asset/html/background.html"
+  ,"background": {
+    "page" : "asset/html/background.html"
+  }
   ,"options_page": "asset/html/options.html"
   ,"permissions": [
     "proxy", "tabs", "http://*/*", "https://*/*" 
   ]
   ,"browser_action": {
-      "name": "Click to change the proxy"
+      "default_title": "Click to change the proxy"
       ,"default_icon":"asset/image/direct.png"
   }
-  ,"content_security_policy": "default-src 'self'; style-src 'self'; script-src 'self'; object-src 'self'"
   ,"homepage_url":"https://github.com/oylbin/tunnel-switch"
   ,"update_url": "http://ouyang.me/projects/tunnel-switch/updates.xml"
 }
