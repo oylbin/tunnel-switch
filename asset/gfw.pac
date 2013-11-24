@@ -2532,7 +2532,7 @@ function FindProxyForURL(url, host)
 		,'zuo.la'
 		,'zuola.com'
 		,'zvereff.com'
-		,'zyzc9.com
+		,'zyzc9.com'
     ];
     
     var exp_list = [ ];
