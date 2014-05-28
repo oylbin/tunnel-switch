@@ -12,3 +12,10 @@ I have 3 modes in the default setting.
  * FIXED SERVER, socks5,127.0.0.1,8527, all traffic goes through the ssh tunnel 
 
 Though I mainly use this extension with socks5 proxy, Other proxy schemas http/https/socks4 are also supported.
+
+### 大陆用户无法访问Chrome Web Store，请按下面的步骤安装：
+
+1. 下载 http://ouyang.me/projects/tunnel-switch/latest.crx
+2. 打开 Chrome，进入“设置”界面中的“扩展程序”界面
+3. 将下载完的crx拖放到Chrome窗口里
+4. Chrome浏览器会提示你是否新增扩展程序，点击“是”
